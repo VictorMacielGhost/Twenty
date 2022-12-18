@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.input-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.input-area{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    min-width: 10rem;
+}
+
+.formulario{
+    width: 50%;
+}
+
+.title{
+    width: 50%;
+    margin-left: 2rem;
+}
+
+.title p{
+    font-size: 2rem;
+}
+
+.title h1{
+    font-size: 4rem;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+}
+
+#error{
+    display: none;
+}

@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+/* ----------------------------------- */
+
+.container-left{
+    max-width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 3rem;
+}
+
+.desc{
+    align-items: left;
+}
+
+.desc h1{
+    font-size: 4rem;
+}
+
+.desc p{
+    font-size: 2rem;
+}
+
+/* ---------------------------------------------- */
+
+.container-right{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    min-width: 50vw;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+#error{
+    display: none;
+}
