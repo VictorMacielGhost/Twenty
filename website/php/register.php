@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
     include "../database/connection.php";
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -15,8 +16,13 @@
 
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
+    $_SESSION['name'] = $name;
+    $_SESSION['username'] = $username;
+    $_SESSION['email'] = $email;
+    $_SESSION['number'] = $number;
+
     mysqli_query($db_connection, "INSERT INTO `users` (userid, name, surname, email, phone, password) VALUES (DEFAULT, '$name', '$surname', '$email', '$number', '$hash');");
-    header("Location: ../pages/registro-login/login.html");
+    header("Location: ../pages/registro-login/confirmEmail.php");
 
     function TratarErro($errorid)
     {

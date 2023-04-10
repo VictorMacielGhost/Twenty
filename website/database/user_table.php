@@ -8,6 +8,7 @@
         name VARCHAR(24) NOT NULL,
         surname VARCHAR(24) NOT NULL,
         email VARCHAR(64) NOT NULL UNIQUE,
+        email_verified TINYINT,
         phone VARCHAR(16),
         password VARCHAR(65) NOT NULL
     )");
