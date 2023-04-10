@@ -17,7 +17,7 @@
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
     $_SESSION['name'] = $name;
-    $_SESSION['username'] = $username;
+    $_SESSION['surname'] = $surname;
     $_SESSION['email'] = $email;
     $_SESSION['number'] = $number;
 

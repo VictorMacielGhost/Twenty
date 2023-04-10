@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include "../database/connection.php";
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -26,6 +28,7 @@
             setcookie('tw_email', $email, time() + (24 * 8) * 3600);
             setcookie('tw_hash', $result['password'], time() + (24 * 8) * 3600);
         }
+
         $_SESSION['hash'] = 'undefined';
         $_SESSION['logged'] = true;
         $_SESSION['email'] = $email;
@@ -34,7 +37,7 @@
         $_SESSION['phone'] = $result['phone'];
         $_SESSION['userid'] = $result['userid'];
 
-        header("Location: ../index.html");
+        header("Location: ../index.php");
 
     }
 
