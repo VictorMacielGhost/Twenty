@@ -31,7 +31,7 @@
         <h1 class="text-primary">Confirm email</h1>
         <p class="text-secondary">A code was sent to the email <?php echo $_SESSION['email']; ?></p>
         <form action="../../php/confirmEmail.php" method='post'>
-            <input type="text" name="code" id="code" maxlength="4" minlength="4" class="form-control">
+            <input type="text" name="code" id="code" class="form-control">
             <input type="submit" value="Confirm code" class="btn btn-primary">
         </form>
         <a href="register.html">This is not my email</a>
