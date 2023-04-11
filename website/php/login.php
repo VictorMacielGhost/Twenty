@@ -14,6 +14,10 @@
     {
         LoadUserData($db_connection, $email);
     }
+    else
+    {
+        echo "Email ou Senha Incorretos! Tente Novamente! <script>setTimeout('Redirect()', 1500); function Redirect() {window.location.href = '../pages/registro-login/login.html';}</script>";
+    }
 
     function LoadUserData($connection, $email)
     {
