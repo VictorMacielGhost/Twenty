@@ -75,10 +75,9 @@
             $ownerid = $cache['ownerid'];
             $header = $cache['header'];
             $body = $cache['body'];
-            $likes = $cache['likes'];
-            $deslikes = $cache['deslikes'];
-            $comments = mysqli_query($db_connection, "SELECT commentid FROM `comments` WHERE `postid` = '$postid';");
-            $comments = mysqli_num_rows($comments);
+            $likes = mysqli_num_rows(mysqli_query($db_connection, "SELECT * FROM `reactions` WHERE `type` = '1';"));
+            $deslikes = mysqli_num_rows(mysqli_query($db_connection, "SELECT * FROM `reactions` WHERE `type` = '0';"));
+            $comments = mysqli_num_rows(mysqli_query($db_connection, "SELECT * FROM `comments` WHERE `postid` = '$postid';"));
             $date = $cache['date'];
             echo "<a href='php/view_post.php?postid=$postid'><div class='posts'>";
             printf("<h4 class='post-owner'>%s %s</h4><h3 class='post-title'>$header</h3>

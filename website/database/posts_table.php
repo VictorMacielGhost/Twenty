@@ -7,8 +7,6 @@
         ownerid INT NOT NULL,
         header VARCHAR(64),
         body VARCHAR(256),
-        likes INT DEFAULT 0,
-        deslikes INT DEFAULT 0,
         date INT NOT NULL
     );");
 
