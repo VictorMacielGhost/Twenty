@@ -21,6 +21,30 @@
 
     <script>
 
+        var userid = <?php echo ($_SESSION['userid']); ?>;
+
+        function React(postid, reactiontype)
+        {
+            if(reactiontype)
+            {
+                var request = new XMLHttpRequest();
+                request.open("GET", "php/make_reaction.php?postid=" + postid + "&ownerid=" + userid + "&type=" + reactiontype);
+                request.send();
+                var btn_like = document.getElementById("likes-count" + postid);
+                btn_like.value = request.responseText;
+                // like
+            }
+            else
+            {
+                var request = new XMLHttpRequest();
+                request.open("GET", "php/make_reaction.php?postid=" + postid + "&ownerid=" + userid + "&type=" + reactiontype);
+                request.send();
+                var btn_deslike = document.getElementById("deslikes-count" + postid);
+                btn_deslike.value = request.responseText;
+                //deslike
+            }
+        }
+
         function AppendOpenComments(postid)
         {
             window.open("php/view_comments.php?postid=" + postid, "_blank", "width='10%', height='10%'");
@@ -60,13 +84,13 @@
             printf("<h4 class='post-owner'>%s %s</h4><h3 class='post-title'>$header</h3>
                 <p class='post-content'>$body</p></a>
                 <div class='buttons'>
-                    <button class='like-button'>
+                    <button class='like-button' onclick='React($postid, 1);'>
                         <i class='like-icon'></i>
-                        <span class='like-count'>$likes</span>
+                        <span class='like-count' id='likes-count$postid'>$likes</span>
                     </button>
-                    <button class='dislike-button'>
+                    <button class='dislike-button' onclick='React($postid, 0);'>
                         <i class='dislike-icon'></i>
-                        <span class='dislike-count'>$deslikes</span>
+                        <span class='dislike-count' id='deslikes-count$postid'>$deslikes</span>
                     </button>
                     <button class='comment-button' onclick='AppendOpenComments($postid);'>
                         <i class='comment-icon'></i>
