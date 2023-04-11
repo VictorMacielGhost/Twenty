@@ -1,0 +1,114 @@
+a{
+    text-decoration: none;
+}
+
+body {
+    background-color: white;
+    color: gray;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+section {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-owner {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.post {
+    background-color: white;
+    border: 1px solid #e1e8ed;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+    text-align:center; /* Adicionado para centralizar o título */
+}
+
+.post-content {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    color: blue;
+    border: 2px solid gray;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+}
+
+.btn:hover {
+    background-color: blue;
+    color: white;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-7px);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .like-button,
+  .dislike-button,
+  .comment-button {
+    background-color: white;
+    border: none;
+    color: blue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  .like-icon:before {
+    content: "👍";
+  }
+  
+  .dislike-icon:before {
+    content: "👎";
+  }
+  
+  .comment-icon:before {
+    content: "💬";
+  }
