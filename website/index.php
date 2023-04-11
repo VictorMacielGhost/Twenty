@@ -31,7 +31,10 @@
                 request.open("GET", "php/make_reaction.php?postid=" + postid + "&ownerid=" + userid + "&type=" + reactiontype);
                 request.send();
                 var btn_like = document.getElementById("likes-count" + postid);
-                btn_like.value = request.responseText;
+                request.onreadystatechange = () => 
+                {
+                    btn_like.innerHTML = request.responseText;
+                }
                 // like
             }
             else
@@ -40,7 +43,10 @@
                 request.open("GET", "php/make_reaction.php?postid=" + postid + "&ownerid=" + userid + "&type=" + reactiontype);
                 request.send();
                 var btn_deslike = document.getElementById("deslikes-count" + postid);
-                btn_deslike.value = request.responseText;
+                request.onreadystatechange = () =>
+                {
+                    btn_deslike.innerHTML = request.responseText;
+                }
                 //deslike
             }
         }
