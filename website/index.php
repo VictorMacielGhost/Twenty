@@ -20,6 +20,12 @@
     <title>Twenty</title>
 
     <script>
+
+        function AppendOpenComments(postid)
+        {
+            window.open("php/view_comments.php?postid=" + postid, "_blank", "width='10%', height='10%'");
+        }
+
         function AppendPostPage()
         {
             window.open("pages/post.html", "_blank", "width='10%' height='10%'");
@@ -61,7 +67,7 @@
                         <i class='dislike-icon'></i>
                         <span class='dislike-count'>$deslikes</span>
                     </button>
-                    <button class='comment-button'>
+                    <button class='comment-button' onclick='AppendOpenComments($postid);'>
                         <i class='comment-icon'></i>
                         <span class='comment-count'>$comments</span>
                     </button>
