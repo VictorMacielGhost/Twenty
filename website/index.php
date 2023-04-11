@@ -53,7 +53,8 @@
             $body = $cache['body'];
             $likes = $cache['likes'];
             $deslikes = $cache['deslikes'];
-            $comments = $cache['comments'];
+            $comments = mysqli_query($db_connection, "SELECT commentid FROM `comments` WHERE `postid` = '$postid';");
+            $comments = mysqli_num_rows($comments);
             $date = $cache['date'];
             echo "<a href='php/view_post.php?postid=$postid'><div class='posts'>";
             printf("<h4 class='post-owner'>%s %s</h4><h3 class='post-title'>$header</h3>
