@@ -8,6 +8,9 @@
     $date = time();
     $ownerid = $_SESSION['userid'];
 
+    $header = mysqli_escape_string($db_connection, $header);
+    $body = mysqli_escape_string($db_connection, $body);
+
     $query = mysqli_query($db_connection, "INSERT INTO `posts` (ownerid, header, body, date) VALUES ('$ownerid', '$header', '$body', '$date');");
     if($query)
     {

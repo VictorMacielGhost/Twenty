@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/view_comments.css">
     <title>Comments</title>
 </head>
 <body>
@@ -24,9 +25,11 @@
             $ownerid = $cache['ownerid'];
             $comment = $cache['comment'];
             $date = $cache['date'];
-            printf("<div>user : %s<br>
-            Comment: %s <br>
-            Date : %s <br></div>", GetUserNameById($ownerid, $db_connection), $comment, date("F j, Y, g:i a", $date));
+            printf("<div class='comment'>
+            <h2 class='comment-author'>%s</h2>
+            <h3 class='comment-header'>%s </h3>
+            <p class='comment-date'>%s </p>
+            </div>", GetUserNameById($ownerid, $db_connection), $comment, date("F j, Y, g:i a", $date));
         }
     ?>
 

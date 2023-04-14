@@ -18,7 +18,7 @@
         $query = "INSERT INTO `reactions` (ownerid, postid, type) VALUES ('$ownerid', '$postid', '$type');";
         mysqli_query($db_connection, $query);
     }
-    if($reactionid) $query = "SELECT * FROM `reactions` WHERE `postid` = '$postid' AND `type` = '1';";
+    if($type == 1) $query = "SELECT * FROM `reactions` WHERE `postid` = '$postid' AND `type` = '1';";
     else $query = "SELECT * FROM `reactions` WHERE `postid` = '$postid' AND `type` = '0';";
     $cache = mysqli_query($db_connection, $query);
     echo (mysqli_num_rows($cache));
