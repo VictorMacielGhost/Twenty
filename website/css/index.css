@@ -44,7 +44,10 @@ section {
     font-weight: bold;
     color: #4a4a4a;
 }
-
+#btn_close:hover
+{
+    cursor: pointer;
+}
 .post {
     background-color: white;
     border: 1px solid #e1e8ed;
@@ -108,6 +111,33 @@ section {
     content: "💬";
   }
 
+#icon-like{
+    color: red;
+    font-weight: bolder;
+}
+
+/* Buttons Liked and Deslike and comments*/
+
+#btn-like{
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bolder;
+}
+
+#btn-deslike{
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bolder;
+}
+
+#btn-comments{
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bolder;
+}
 
 .card-post{
     display: none;
@@ -144,6 +174,12 @@ form{
     border-bottom: 1px solid rgba(0, 0, 0, 0.288);
     margin-bottom: 10px;
 }
+
+/* cardpost */
+.card{
+    margin-bottom: 20px;
+}
+
 
 /* width */
 ::-webkit-scrollbar {

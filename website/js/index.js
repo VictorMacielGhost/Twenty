@@ -1,4 +1,35 @@
-function errorAlert() {
-    var alert = document.getElementById("error")
-    alert.style.display = "flex"
+var liked = false;
+var desliked = false;
+
+function ToggleDeslike(postid)
+{
+    var btn_deslike = document.getElementById("icon-deslike" + postid);
+    if(!desliked)
+    {
+        btn_deslike.className = "bi-x-circle-fill";
+        desliked = true;
+    }
+    else
+    {
+        btn_deslike.classList = "bi-x-circle";
+        desliked = false;
+    }
+    React(postid, 0);
+}
+
+function ToggleLike(postid)
+{
+    var btn1 = document.getElementById("icon-like" + postid);
+    if(!liked)
+    {
+        btn1.className = "bi-heart-fill";
+        
+        liked = true;
+    }
+    else
+    {
+        btn1.className = "bi-heart";
+        liked = false;
+    }
+    React(postid, 1);
 }

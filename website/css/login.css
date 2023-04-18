@@ -56,3 +56,35 @@ form{
 #error{
     display: none;
 }
+
+.responsive-title{
+    font-size: 
+    4rem; 
+    margin-bottom: 
+    50px; 
+    display: none;
+}
+
+/* responsivo */
+
+@media screen and (max-width: 540px){
+    .container-left{
+        display: none;
+    }
+    main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login{
+        width: 70%;
+    }
+
+    .responsive-title{
+        display: flex;
+    }
+
+}
