@@ -9,29 +9,19 @@
     $cache = mysqli_query($db_connection, "SELECT password FROM `users` WHERE email = '$email';");
     $result = mysqli_fetch_array($cache);
     $hash = $result['password'];
-
     if(password_verify($password, $hash))
     {
-        LoadUserData($db_connection, $email);
-    }
-    else
-    {
-        echo "Email ou Senha Incorretos! Tente Novamente! <script>setTimeout('Redirect()', 1500); function Redirect() {window.location.href = '../pages/registro-login/login.html';}</script>";
-    }
-
-    function LoadUserData($connection, $email)
-    {
         $remember = $_POST['remember'];
-
-        $cache = mysqli_query($connection, "SELECT * FROM `users` WHERE email = '$email';");
-        $result = mysqli_fetch_array($cache);
-
+        echo $remember;
         if($remember)
         {
             setcookie('tw_rememberme', 'true', time() + (24 * 8) * 3600);
             setcookie('tw_email', $email, time() + (24 * 8) * 3600);
             setcookie('tw_hash', $result['password'], time() + (24 * 8) * 3600);
         }
+
+        $cache = mysqli_query($db_connection, "SELECT * FROM `users` WHERE email = '$email';");
+        $result = mysqli_fetch_array($cache);
 
         $_SESSION['hash'] = 'undefined';
         $_SESSION['logged'] = true;
@@ -42,7 +32,9 @@
         $_SESSION['userid'] = $result['userid'];
 
         header("Location: ../index.php");
-
     }
-
+    else
+    {
+        echo "Email ou Senha Incorretos! Tente Novamente! <script>setTimeout('Redirect()', 1500); function Redirect() {window.location.href = '../pages/registro-login/login.html';}</script>";
+    }
 ?>
