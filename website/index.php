@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <title>Twenty</title>
     <script src="js/index.js"></script>
+    <link rel="icon" href="assets/logo.png">
     <script>
 
         var userid = <?php echo ($_SESSION['userid']); ?>;
@@ -94,15 +95,28 @@
     </script>
 </head>
 <body>
-
-    <button class="btn-thinking" onclick="AppendPost()">Quer dizer algo?</button>
-
     <?php
 
         include "database/connection.php";
         include "php/utils.php";
 
         echo "<main>";
+
+        echo "<div class='options'>";
+        printf('
+            <ul>
+                <li><a href="#"><i class="bi bi-person-fill"></i>perfil</a></li>
+                <li><a href="#"><i class="bi bi-chat-fill"></i>mensagens</a></li>
+                <li><a href="#"><i class="bi bi-bell-fill"></i>notificacoes</a></li>
+                <li><a href="#"><i class="bi bi-gear-fill"></i></a>configurações</li>
+                <li><a href="#"><i class="bi bi-x-octagon-fill"></i>sair</a></li>
+            </ul>
+        ');
+        echo "</div>";
+
+        echo "<div class='post'>";
+
+        echo "<button class='btn-thinking' onclick='AppendPost()'><i class='bi bi-megaphone-fill'></i></button>";
 
         $query = mysqli_query($db_connection, "SELECT * FROM `posts` ORDER BY `date` DESC");
         while($cache = mysqli_fetch_array($query))
@@ -115,30 +129,25 @@
             $comments = mysqli_num_rows(mysqli_query($db_connection, "SELECT * FROM `comments` WHERE `postid` = '$postid';"));
             $date = $cache['date'];
             
-            printf('<div class="card" style="width: 18rem;">
+            printf('<div class="card">
                 <div class="card-body">
                     <h5 class="card-title">%s</h5>
                     <p class="card-text">%s</p>
-                    <button onclick="ToggleLike(' . $postid . ')" id="btn-like" ><i class="bi bi-heart" id="icon-like' . $postid . '"></i>%d</button>
-                    <button onclick="ToggleDeslike(' . $postid . '); " id="btn-deslike"><i class="bi bi-x-circle" id="icon-deslike' . $postid . '">%d</i></button>
-                    <button id="btn-comments"><i class="bi bi-megaphone"></i></button>
                 </div>
             </div>
             ', GetUserNameById($ownerid, $db_connection), $body, $likes, $deslikes);
         }
+        echo "</div>";
         echo "</main>";
     ?>
     
     <div class="card-post" id="OpenPost">
-        <div class="card" style="padding: 10px; border-radius: 20px;">
+        <div class="card" style="padding: 10px; border-radius: 20px;" id="Opp">
             <i class="bi bi-x" style="font-size: 2rem;" onclick="AppendPost()" id="btn_close"></i>
             <form action="php/make_post.php" method="Post">
-                <textarea name="content" id="posting" cols="60" rows="5" placeholder="Oque voc� quer dizer?" class="areapost" style="resize: none;"></textarea>
+                <textarea name="content" id="posting" cols="60" rows="5" placeholder="Oque você quer dizer?" class="areapost" style="resize: none;"></textarea>
                 <input type="submit" value="Publish" class="btn btn-primary" id="btn_post" style="margin-bottom: 10px;" disabled>
             </form>
-            <div class="options-post">
-                <button class="op-post"><i class="bi bi-images"></i></button>
-            </div>
         </div>
         
     </div>
