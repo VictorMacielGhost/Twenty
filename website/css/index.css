@@ -16,7 +16,7 @@ main {
 /* menu de opções */
 
 .options {
-    width: 30%;
+    width: 20%;
     height: 100vh;
     justify-content: center;
     align-items: center;
@@ -32,13 +32,13 @@ ul {
 
 li {
     list-style: none;
-    border: 1px solid rgba(0, 0, 0, 0.267);
     padding-bottom: 30px;
     padding-top: 30px;
     padding-left: 10px;
     width: 80%;
     border-radius: 10px;
 }
+
 
 ul li a {
     text-decoration: none;
@@ -48,12 +48,18 @@ ul li a {
 ul li a i {
     margin-left: 10px;
     margin-right: 10px;
+    font-weight: bolder;
 }
 
 /* feed */
 
+::-webkit-scrollbar {
+    width: 50px;
+  }
+
+
 .post {
-    width: 80%;
+    width: 50%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -61,8 +67,18 @@ ul li a i {
 }
 
 .card {
-    width: 70%;
+    width: 100%;
     margin-bottom: 10px;
+}
+
+.card-title{
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.card-time{
+    font-size: .9vw;
+    color: rgba(0, 0, 0, 0.397);
 }
 
 .card-body {
@@ -70,21 +86,26 @@ ul li a i {
 }
 
 .btn-thinking {
-    position: fixed;
-    top: 85%;
-    left: 85%;
-    z-index: 1;
-    padding: 20px;
+    width: 100%;
+    padding: 10px;
     border: none;
     color: white;
-    border-radius: 100%;
     background-color: royalblue;
-    font-size: 2vw;
+    font-size: 1.3vw;
     transition: .2s;
+    border-radius: 30px;
 }
 
 .btn-thinking:hover {
     background-color: rgb(48, 78, 168);
+}
+
+/* area da direita */
+.container-rigth{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* textarea */

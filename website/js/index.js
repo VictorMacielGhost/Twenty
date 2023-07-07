@@ -36,9 +36,3 @@ function ToggleLike(postid)
 
 const btn_close = document.getElementById("btn_close")
 const textarea = document.getElementById("posting")
-
-btn_close.addEventListener('click', function(e){
-    if (textarea.value !== '') {
-        alert('tem certeza??')
-    }
-});

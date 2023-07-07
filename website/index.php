@@ -102,21 +102,23 @@
 
         echo "<main>";
 
-        echo "<div class='options'>";
+        echo "<div class='options border-end'>";
         printf('
             <ul>
-                <li><a href="#"><i class="bi bi-person-fill"></i>perfil</a></li>
-                <li><a href="#"><i class="bi bi-chat-fill"></i>mensagens</a></li>
-                <li><a href="#"><i class="bi bi-bell-fill"></i>notificacoes</a></li>
-                <li><a href="#"><i class="bi bi-gear-fill"></i></a>configurações</li>
-                <li><a href="#"><i class="bi bi-x-octagon-fill"></i>sair</a></li>
+                <li><a href="#"><i class="bi bi-house-fill"></i>home</a></li>
+                <li><a href="#"><i class="bi bi-person"></i>perfil</a></li>
+                <li><a href="#"><i class="bi bi-chat"></i>mensagens</a></li>
+                <li><a href="#"><i class="bi bi-bell"></i>notificacoes</a></li>
+                <li><a href="#"><i class="bi bi-gear"></i></a>configurações</li>
+                <li><a href="#"><i class="bi bi-moon"></i>Tema</a></li>
+                <li><a href="#"><i class="bi bi-x-octagon"></i>sair</a></li>
+                <li class="li-think"><button class="btn-thinking" onclick="AppendPost()">Publicar</button></li>
             </ul>
         ');
         echo "</div>";
 
         echo "<div class='post'>";
 
-        echo "<button class='btn-thinking' onclick='AppendPost()'><i class='bi bi-megaphone-fill'></i></button>";
 
         $query = mysqli_query($db_connection, "SELECT * FROM `posts` ORDER BY `date` DESC");
         while($cache = mysqli_fetch_array($query))
@@ -129,15 +131,21 @@
             $comments = mysqli_num_rows(mysqli_query($db_connection, "SELECT * FROM `comments` WHERE `postid` = '$postid';"));
             $date = $cache['date'];
             
-            printf('<div class="card">
+            printf('<div class="card border-0 border-bottom">
                 <div class="card-body">
                     <h5 class="card-title">%s</h5>
                     <p class="card-text">%s</p>
+                    <p class="card-time">Agora mesmo</p>
                 </div>
             </div>
             ', GetUserNameById($ownerid, $db_connection), $body, $likes, $deslikes);
         }
         echo "</div>";
+        printf('
+            <div class="container-rigth border-start">
+                <h3>Twenty Desktop</h3>
+            </div>
+        ');
         echo "</main>";
     ?>
     
@@ -146,7 +154,7 @@
             <i class="bi bi-x" style="font-size: 2rem;" onclick="AppendPost()" id="btn_close"></i>
             <form action="php/make_post.php" method="Post">
                 <textarea name="content" id="posting" cols="60" rows="5" placeholder="Oque você quer dizer?" class="areapost" style="resize: none;"></textarea>
-                <input type="submit" value="Publish" class="btn btn-primary" id="btn_post" style="margin-bottom: 10px;" disabled>
+                <input type="submit" value="Postar" class="btn btn-primary" id="btn_post" style="margin-bottom: 10px;" disabled>
             </form>
         </div>
         
